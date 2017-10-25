@@ -125,6 +125,27 @@ p,
 }
 
 
+/* JUMBOTRONS
+---------------------------------------------------*/
+
+.with-image-bg {
+    background-image: url(covers/background-2.JPG);
+    background-size: 100% 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.jumbo-container {
+    margin-top: 200px;
+}
+
+.jumbo-container>p,
+.jumbo-container>a,
+.jumbo-container>h1 {
+    color: #eeeeee;
+}
+
+
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
