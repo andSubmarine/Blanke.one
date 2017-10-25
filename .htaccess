@@ -1,0 +1,7 @@
+#Rewrite everything to https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#Handling errors
+ErrorDocument 404 https://blanke.one/error.html
