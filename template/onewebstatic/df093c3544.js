@@ -1,0 +1,1 @@
+oneJQuery(document).ready(function(){oneJQuery("ul.shareButtonCntnr").delegate("a","click",function(evt){evt.preventDefault();evt.stopPropagation();window.open(oneJQuery(this).attr("href")+encodeURIComponent(window.location.href))})});
