@@ -1,0 +1,12 @@
+.error-jumbo {
+    background-size: 100% 100%;
+    height: 800px;
+}
+
+#error-404-jumbo {
+    background-image: url(../covers/error-404.JPG);
+}
+
+#error-403-jumbo {
+    background-image: url(../covers/background-7.jpg);
+}
