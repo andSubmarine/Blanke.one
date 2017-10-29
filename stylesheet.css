@@ -247,10 +247,6 @@ footer .container .well {
     color: #ffffff;
 }
 
-#btn_goto_top: hover {
-    color: #7F7F7F;
-}
-
 .back-to-top {
     cursor: pointer;
     position: fixed;

@@ -1,0 +1,48 @@
+.jumbotron {
+    min-height: 80%;
+    background-image: url(img/background.JPG);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.jumbo-inner {
+    margin-top: 30%;
+}
+
+.center {
+    text-align: center;
+}
+
+.divider {
+    min-width: 100%;
+    color: #c4c1c1;
+}
+
+.marked-text {
+    color: #444444;
+    font-style: italic;
+    font-weight: bold;
+}
+
+output {
+    display: inline;
+    font-size: 500%;
+}
+
+output,
+.jumbo-inner>p {
+    color: #eeeeee;
+    text-shadow: 3px 3px rgb(59, 59, 59);
+}
+
+
+/* MOBILE SCREENS */
+
+@media (max-width: 700px) {
+    output {
+        font-size: 400%;
+    }
+    .jumbotron {
+        min-height: 50%;
+    }
+}
