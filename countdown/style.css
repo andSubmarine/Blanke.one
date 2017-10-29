@@ -45,7 +45,7 @@
 /* MOBILE SCREENS */
 
 @media (max-width: 700px) {
-    output {
+    #output {
         font-size: 200%;
     }
     .jumbo-inner>p {
