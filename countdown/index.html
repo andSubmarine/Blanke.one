@@ -62,7 +62,7 @@
         <div class="col-md-12 jumbotron center full">
             <div class="jumbo-inner">
                 <output id="output" form="date-form" for="datepicker" name="date-out">00 : 00 : 00</output>
-                <p id="help">Days : Hours : Minutes : Seconds</p>
+                <output id="help">Days : Hours : Minutes : Seconds</output>
             </div>
         </div>
 
@@ -170,7 +170,8 @@
 
     <script type="application/javascript">
         // Set the date we're counting down to
-        var countDownDate = new Date("Nov 26, 2017 00:00:00").getTime();
+        var mybirthday = new Date("Nov 26, 2017 00:00:00");
+        var countDownDate = mybirthday.getTime();
 
         // Update the count down every 1 second
         var x = setInterval(updateCounter, 1000);
@@ -184,24 +185,22 @@
             // Find the distance between now an the count down date
             var distance = countDownDate - now;
 
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            if (days < 10) days = "0" + days;
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            if (hours < 10) hours = "0" + hours;
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            if (minutes < 10) minutes = "0" + minutes;
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            if (seconds < 10) seconds = "0" + seconds;
-
-            // Output the result in an element with id="demo"
-            document.getElementById("output").innerHTML = days + " : " + hours + " : " +
-                minutes + " : " + seconds;
-
             // If the count down is over, write some text 
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("output").innerHTML = "00 : 00 : 00";
+                if (countDownDate == mybirthday.getTime()) {
+                    document.getElementById("output").innerHTML = "Happy Birthday, Andreas!";
+                    document.getElementById("help").innerHTML = "";
+                }
+            } else {
+
+                // Time calculations for days, hours, minutes and seconds
+                var date = parseDistance(distance);
+                var output = setupOutput(date);
+
+                // Output the result in an element with id="demo"
+                document.getElementById("output").innerHTML = output.d;
+                document.getElementById("help").innerHTML = output.h;
             }
         }
 
@@ -210,12 +209,79 @@
             console.log("change time called with param " + input);
             var date = new Date(input);
             console.log("parsed input to " + date)
-            if ((typeof date) === "object" && date != "Invalid Date") {
-                console.log("passed check");
-                countDownDate = date;
-                clearInterval(x);
-                x = setInterval(updateCounter, 1000);
+            if ((typeof date) === "object" &&
+                date != "Invalid Date") {
+                console.log("passed first check");
+                if (new Date() <= date) { // now is before or equal to new date
+                    countDownDate = date;
+                    clearInterval(x);
+                    x = setInterval(updateCounter, 1000);
+                } else {
+                    alert("You cannot set the date to something before today!");
+                }
             }
+        }
+
+        function parseDistance(distance) {
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            if (days < 10) days = "0" + days;
+
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            if (hours < 10) hours = "0" + hours;
+
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            if (minutes < 10) minutes = "0" + minutes;
+
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (seconds < 10) seconds = "0" + seconds;
+
+            var date = {
+                days,
+                hours,
+                minutes,
+                seconds
+            };
+            return date;
+        }
+
+        function setupOutput(date) {
+            var help = {
+                d: "Days",
+                h: "Hours",
+                m: "Minutes",
+                s: "Seconds"
+            };
+            if (!isEmpty(date.days)) {
+                return {
+                    d: date.days + " : " + date.hours + " : " + date.minutes + " : " + date.seconds,
+                    h: help.d + " : " + help.h + " : " + help.m + " : " + help.s
+                };
+            } else if (!isEmpty(date.hours)) {
+                return {
+                    d: date.hours + " : " + date.minutes + " : " + date.seconds,
+                    h: help.h + " : " + help.m + " : " + help.s
+                };
+            } else if (!isEmpty(date.minutes)) {
+                return {
+                    d: date.minutes + " : " + date.seconds,
+                    h: help.m + " : " + help.s
+                };
+            } else if (!isEmpty(date.seconds)) {
+                return {
+                    d: date.seconds,
+                    h: help.s
+                };
+            } else { // countdown complete
+                return {
+                    d: "Countdown Complete!",
+                    h: ""
+                };
+            }
+        }
+
+        function isEmpty(value) {
+            return value == "00";
         }
     </script>
 

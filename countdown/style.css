@@ -30,13 +30,13 @@
     font-weight: bold;
 }
 
-output {
+#output {
     display: inline;
     font-size: 500%;
 }
 
-output,
-.jumbo-inner>p {
+#output,
+#help {
     color: #eeeeee;
     text-shadow: 3px 3px rgb(59, 59, 59);
 }
