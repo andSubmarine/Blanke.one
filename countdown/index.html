@@ -1,11 +1,15 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-
-    <title>Custom Countdown</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- First three meta tags are required - all else must follow after-->
+    <title>Blanke Countdown</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,31 +21,60 @@
     <!-- My own stylesheets and scripts -->
     <link rel="icon" href="../images/favicon.ico" type="image/ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../stylesheet.css">
 </head>
 
 <body>
 
-    <div class="container-fluid">
-        <div class="col-md-8">
-            <div class="jumbotron center">
-                <div class="jumbo-inner">
-                    <output id="output" form="date-form" for="datepicker" name="date-out">00 : 00 : 00</output>
-                    <p id="help">Days : Hours : Minutes : Seconds</p>
+    <!-- Top Navigation Bar -->
+    <div class="navbar-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                        <img class="navbar-brand img-square" src="../images/blankeicon.png" alt="Blanke ikon">
+                        <a class="navbar-brand" href="../index.html">Andreas Blanke</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="../projects.html">Projects...</a></li>
+                            <li><a href="../interesting.html">Interesting...</a></li>
+                            <li><a href="../index.html#about-begin">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container-fluid">
+        <div class="col-md-12 jumbotron center full">
+            <div class="jumbo-inner">
+                <output id="output" form="date-form" for="datepicker" name="date-out">00 : 00 : 00</output>
+                <p id="help">Days : Hours : Minutes : Seconds</p>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <hr class="divider">
-
+        <div class="col-md-6">
             <div class="panel-help">
                 <h3>How to use the countdown:</h3>
                 <p>The date and time that is currently being count down to is my birthday (<span class="marked-text">26 November</span>), but that doesn't mean that it's the most interesting date. Set your own down below and set it ticking!
                 </p>
             </div>
 
-            <hr class="divider">
-
+        </div>
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form id="date-form" name="date-form" method="post">
@@ -55,6 +88,85 @@
             </div>
         </div>
     </div>
+
+    <hr class="divider">
+
+    <!-- Social Media -->
+    <div class="social-media container">
+        <div class="row">
+            <div class="col-md-2">
+                <a href="https://www.facebook.com/andsubmarine"><img class="img-circle" src="../images/facebook.png" alt="Generic placeholder image" width="100" height="100"></a>
+                <p>Befriend me on <a href="https://www.facebook.com/andsubmarine">Facebook</a>!</p>
+            </div>
+            <div class="col-md-2">
+                <a href="https://twitter.com/andSubmarine"><img class="img-circle" src="../images/twitter.png" alt="Generic placeholder image" width="100" height="100"></a>
+                <p>Follow me on <a href="https://twitter.com/andSubmarine">Twitter</a>!</p>
+            </div>
+            <div class="col-md-2">
+                <a href="https://www.linkedin.com/in/andreas-b-5a926b84?trk=nav_responsive_tab_profile"><img class="img-circle" src="../images/linkedin.png" alt="Generic placeholder image" width="100" height="100"></a>
+                <p>Connect with me on <a href="https://www.linkedin.com/in/andreas-b-5a926b84?trk=nav_responsive_tab_profile">LinkedIn</a>!</p>
+            </div>
+            <div class="col-md-2">
+                <a href="https://github.com/andSubmarine"><img class="img-square" src="../images/github.png" alt="Generic placeholder image" width="100" height="100"></a>
+                <p>Check out my projects at <a href="https://github.com/andSubmarine">GitHub</a>!</p>
+            </div>
+            <div class="col-md-2">
+                <a data-toggle="modal" data-target="#myModal"><img class="img-square" src="../images/mail.png" alt="Generic placeholder image" width="100" height="100"></a>
+                <p>Send me an <a data-toggle="modal" data-target="#myModal">email</a>!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EMAIL MODAL -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Contact me via email</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="../sendMail.php" method="post" class="form-horizontal" target="_blank" onsubmit="return checkWhetherSent()">
+                        <div class="form-group">
+                            <label for="headers" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="headers" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="col-sm-2 control-label">Subject</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="subject" placeholder="subject">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="col-sm-2 control-label">Message</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="message" placeholder="your message">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <input type="submit" class="btn btn-primary form-control" value="Submit"></input>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="pull-right"><a id="btn_goto_top" href="#">Back to top</a></p>
+            <p>&copy; 2016 Andreas Blanke - Made with <a href="http://getbootstrap.com/">Bootstrap</a>
+                <!--&middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>--></p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
 
     <script type="application/javascript">
         // Set the date we're counting down to
@@ -111,7 +223,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,18 @@
 .jumbotron {
     min-height: 80%;
-    background-image: url(img/background.JPG);
+    background-image: url(../covers/background-2.JPG);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
+.full {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 .jumbo-inner {
     margin-top: 30%;
+    margin-bottom: 20%;
 }
 
 .center {
@@ -40,9 +46,12 @@ output,
 
 @media (max-width: 700px) {
     output {
-        font-size: 400%;
+        font-size: 200%;
+    }
+    .jumbo-inner>p {
+        font-size: 12px;
     }
     .jumbotron {
-        min-height: 50%;
+        min-height: 70%;
     }
 }
