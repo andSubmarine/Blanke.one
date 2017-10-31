@@ -58,15 +58,19 @@
 
     <!-- MAIN CONTENT -->
 
-    <div class="container-fluid">
-        <div class="col-md-12 jumbotron center full">
+    <div class="container-fluid full">
+        <div class="col-md-12 jumbotron center">
             <div class="jumbo-inner">
                 <output id="output" form="date-form" for="datepicker" name="date-out">00 : 00 : 00</output>
                 <output id="help">Days : Hours : Minutes : Seconds</output>
             </div>
         </div>
+    </div>
 
-        <div class="col-md-6">
+    <hr class="divider">
+
+    <div class="container-fluid">
+        <div class="col-md-6 extra-padding">
             <div class="panel-help">
                 <h3>How to use the countdown:</h3>
                 <p>The clock is currently counting down to my next birthday (<span class="marked-text">26 November</span>), but if you want, then you can change that!</p>
@@ -74,7 +78,7 @@
             </div>
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 extra-padding">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form id="date-form" name="date-form" action="javascript:changeTime();">

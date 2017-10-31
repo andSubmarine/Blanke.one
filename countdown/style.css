@@ -30,6 +30,11 @@
     font-weight: bold;
 }
 
+.extra-padding {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
 #output {
     display: inline;
     font-size: 500%;
