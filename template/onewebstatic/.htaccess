@@ -1,6 +1,0 @@
-<FilesMatch "(?<!^sitemap\.xml)$">
-ExpiresActive On
-ExpiresDefault "access plus 1 year"
-FileETag none
-Header append Cache-Control "public"
-</FilesMatch>
