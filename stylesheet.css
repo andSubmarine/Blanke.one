@@ -199,6 +199,16 @@ p,
     height: 300px;
 }
 
+.extra-top-margin {
+    padding-top: 50px;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+}
+
 
 /* Social Media
 ------------------------- */

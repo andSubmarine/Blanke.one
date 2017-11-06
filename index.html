@@ -170,19 +170,27 @@ session_start();
                 <div id="about-begin">
                     <div class="row featurette f1">
                         <div class="col-md-7">
-                            <h2 class="featurette-heading">Who is this person? <span class="text-muted">Why should I care?</span></h2>
-                            <p class="lead">To be 100% honest - I'm still trying to find out, but here is what I currently know. I am currently a Undergraduate Student of <a href="https://www.itu.dk/Uddannelser/Bacheloruddannelser/Softwareudvikling">Software Development</a>                                at ITU in Copenhagen. </p>
-                            <p class="lead">I am a Hobby Photographer <a href="https://blanke.one">(just look at my photos)</a> , Designer of the Webs (just look <a href="https://blanke.one/#">here</a>), Low-Level PhotoShopper, Software Craftsman (wait what is <a href="https://en.wikipedia.org/wiki/Software_craftsmanship">this</a>?),
-                                Coffee and Rum Enthusiast, Duck Quacker, and probably more than that...</p>
-                            <p class="lead">For more information: Please send coffee to my current location.</p>
+                            <h2 class="featurette-heading">Who is this person? <span class="text-muted">(Some dude with a website)</span></h2>
+                            <p class="lead">To be 100% honest - I'm still trying to find out, but here is what I currently know. I am currently a Undergraduate Student of
+                                <a href="https://www.itu.dk/Uddannelser/Bacheloruddannelser/Softwareudvikling">Software Development</a> at ITU in Copenhagen. </p>
+                            <p class="lead">I am a Hobby Photographer
+                                <a href="https://blanke.one">(just look at my photos)</a>, Web Designer & Web Developer (just look at
+                                <a href="https://blanke.one/#">this website</a>), Amateur PhotoShopper, Software Engineer/Craftsman (wait what is
+                                <a href="https://en.wikipedia.org/wiki/Software_craftsmanship">this</a>?), Coffee and Rum Enthusiast, Rubber Duck Enthusiast, and probably a lot of other things.</p>
+                            <p class="lead">Currently I speak the following languages: (fluently) English & Danish, (semi-fluently) Java, C#, JavaScript, HTML5, CSS3, (basic understanding) Python & German</p>
+                            <p class="lead">For more information: Please send coffee to my current location (see below).</p>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 extra-top-margin">
                             <img class="featurette-image img-responsive center-block" src="images/collage.png" alt="Generic placeholder image">
                         </div>
                     </div>
                 </div>
 
                 <hr class="featurette-divider">
+
+                <div class="row featurette col-md-12">
+                    <div id="map"></div>
+                </div>
 
                 <!-- /END THE FEATURETTES -->
 
@@ -273,7 +281,7 @@ session_start();
 
         </div>
 
-        <!-- My script -->
+        <!-- My scripts -->
         <script type=text/javascript>
             function checkWhetherSent() {
                 $('#myModal').modal('hide');
@@ -283,6 +291,26 @@ session_start();
             function resetModal() {
                 $('.form-control').value = '';
             }
+        </script>
+
+        <!-- Google Maps -->
+        <script>
+            function initMap() {
+                var uluru = {
+                    lat: 55.659644,
+                    lng: 12.590966
+                };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: uluru
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzZ6CErlKYSnhkJ8bCPyWc8uBA-cE_MQU&callback=initMap">
         </script>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
