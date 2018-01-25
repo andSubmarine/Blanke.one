@@ -40,6 +40,9 @@ p,
     font-size: 18px;
 }
 
+.italic {
+    font-style: italic;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -129,14 +132,19 @@ p,
 ---------------------------------------------------*/
 
 .with-image-bg {
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: 50% 50%;
     height: auto;
     max-width: 100%;
 }
 
 #projects-jumbo {
     background-image: url(covers/background-2.JPG);
+}
+
+#map-of-denmark-jumbo {
+    background-image: url(covers/background-8.JPG);
 }
 
 .jumbo-container {
@@ -147,7 +155,7 @@ p,
 .jumbo-container>a,
 .jumbo-container>h1 {
     color: #eeeeee;
-    text-shadow: 3px 3px rgb(59, 59, 59);
+    text-shadow: 1px 1px rgb(59, 59, 59);
 }
 
 
