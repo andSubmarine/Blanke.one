@@ -174,7 +174,8 @@
 
     <script type="application/javascript">
         // Set the date we're counting down to
-        var mybirthday = new Date("Nov 26, 2017 00:00:00");
+        var mybirthday;
+        determineBirthday();
         var countDownDate = mybirthday.getTime();
 
         // Update the count down every 1 second
@@ -182,15 +183,25 @@
 
         console.log("countdown started towards: " + countDownDate);
 
+        function determineBirthday() {
+            var t = new Date();
+            var birthdayThisYear = new Date(t.getFullYear(),11,26);
+            if (birthdayThisYear - t < 0) {
+                mybirthday = new Date(t.getFullYear()+1,11,26);
+            } else {
+                mybirthday = birthdayThisYear;
+            }
+        }
+
         function updateCounter() {
             // Get todays date and time
             var now = new Date().getTime();
 
             // Find the distance between now an the count down date
             var distance = countDownDate - now;
-
+            console.log("distance: "+distance);
             // If the count down is over, write some text 
-            if (distance < 0) {
+            if (distance <= 0) {
                 clearInterval(x);
                 if (countDownDate == mybirthday.getTime()) {
                     document.getElementById("output").innerHTML = "Happy Birthday, Andreas!";
